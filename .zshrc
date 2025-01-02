@@ -100,7 +100,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:/Users/luke/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # NVM
@@ -112,12 +112,12 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
 
 # Bun
-[ -s "/Users/luke/.bun/_bun" ] && source "/Users/luke/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Go
-# export PATH="/Users/luke/go/bin:$PATH"
+# export PATH="$HOME/go/bin:$PATH"
 
 # Posgres
 export PATH="/usr/local/opt/libpq/bin:$PATH"
@@ -127,10 +127,10 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Local bin
-export PATH="$PATH:/Users/luke/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Playdate
-export PLAYDATE_SDK_PATH="/Users/luke/Developer/PlaydateSDK"
+export PLAYDATE_SDK_PATH="$HOME/Developer/PlaydateSDK"
 
 # Aliases
 
