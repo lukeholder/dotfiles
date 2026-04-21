@@ -1,0 +1,13 @@
+# mise global runtime configuration
+# https://mise.jdx.dev/
+#
+# These versions are installed globally via `mise install`.
+# Override per-project by adding a .mise.toml in the project root.
+
+[tools]
+node    = "lts"
+php     = "latest"
+ruby    = "latest"
+zig     = "latest"
+crystal = "latest"
+bun     = "latest"
