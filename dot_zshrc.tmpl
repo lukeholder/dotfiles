@@ -1,0 +1,12 @@
+# Homebrew (managed by chezmoi)
+{{ if eq .chezmoi.arch "arm64" -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ else -}}
+eval "$(/usr/local/bin/brew shellenv)"
+{{ end -}}
+
+# mise — runtime version manager
+eval "$(mise activate zsh)"
+
+# fzf — key bindings and fuzzy completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

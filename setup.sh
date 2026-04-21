@@ -163,41 +163,15 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-# 8. Shell profile — mise & Homebrew activation
+# 8. fzf shell integration (creates ~/.fzf.zsh; ~/.zshrc is managed by chezmoi)
 # ---------------------------------------------------------------------------
-step "Shell profile"
-
-add_to_profile() {
-  local file="$1"
-  local snippet="$2"
-  local label="$3"
-  if [[ -f "$file" ]] && grep -qF "$label" "$file" 2>/dev/null; then
-    success "$label already in $file"
-    return
-  fi
-  echo "" >> "$file"
-  echo "# $label" >> "$file"
-  echo "$snippet" >> "$file"
-  success "Added $label to $file"
-}
-
-ZSHRC="$HOME/.zshrc"
-touch "$ZSHRC"
-
-# Homebrew (Apple Silicon path)
-add_to_profile "$ZSHRC" \
-  'eval "$(/opt/homebrew/bin/brew shellenv)"' \
-  "Homebrew"
-
-# mise
-add_to_profile "$ZSHRC" \
-  'eval "$(mise activate zsh)"' \
-  "mise"
-
-# fzf
-if [[ -f "$(brew --prefix)/opt/fzf/install" ]] && ! grep -q "fzf" "$ZSHRC" 2>/dev/null; then
+step "fzf shell integration"
+if [[ -f "$(brew --prefix)/opt/fzf/install" ]] && [[ ! -f "$HOME/.fzf.zsh" ]]; then
   info "Setting up fzf shell integration..."
   "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
+  success "fzf shell integration configured"
+else
+  success "fzf shell integration already configured"
 fi
 
 # ---------------------------------------------------------------------------
