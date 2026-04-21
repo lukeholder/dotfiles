@@ -78,7 +78,11 @@ brew update --quiet
 step "Brewfile packages"
 if [[ -f "$SCRIPT_DIR/Brewfile" ]]; then
   info "Running brew bundle..."
-  brew bundle --file="$SCRIPT_DIR/Brewfile" --no-lock
+  if brew bundle --help 2>&1 | grep -q -- '--no-lock'; then
+    brew bundle --file="$SCRIPT_DIR/Brewfile" --no-lock
+  else
+    brew bundle --file="$SCRIPT_DIR/Brewfile"
+  fi
   success "Brewfile packages installed"
 else
   warn "Brewfile not found at $SCRIPT_DIR/Brewfile — skipping"
