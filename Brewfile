@@ -1,0 +1,83 @@
+# Homebrew Bundle — lukeholder/laptop
+# Install everything with: brew bundle --no-lock
+# https://github.com/Homebrew/homebrew-bundle
+
+# ---------------------------------------------------------------------------
+# Taps
+# ---------------------------------------------------------------------------
+tap "ddev/ddev"
+tap "stripe/stripe-cli"
+tap "ngrok/ngrok"
+
+# ---------------------------------------------------------------------------
+# CLI Tools
+# ---------------------------------------------------------------------------
+brew "bat"                  # Better cat
+brew "difftastic"           # Structural diff tool
+brew "eza"                  # Modern ls replacement
+brew "fzf"                  # Fuzzy finder
+brew "gh"                   # GitHub CLI
+brew "git"                  # Latest Git
+brew "jq"                   # JSON processor
+brew "mise"                 # Runtime version manager
+brew "neovim"               # Neovim text editor
+brew "ripgrep"              # Fast grep (rg)
+brew "tmux"                 # Terminal multiplexer
+brew "stripe/stripe-cli/stripe" # Stripe CLI
+
+# ngrok — expose local servers to the internet
+cask "ngrok"
+
+# ---------------------------------------------------------------------------
+# Cask Applications
+# ---------------------------------------------------------------------------
+
+# Browsers
+cask "google-chrome"
+cask "firefox"
+
+# Terminal
+cask "ghostty"
+
+# Editors & IDEs
+cask "visual-studio-code"
+
+# API Tools
+cask "bruno"                # Open-source API client
+
+# Communication & Productivity
+cask "linear-linear"        # Linear issue tracker
+cask "notion"               # Note-taking & wiki
+cask "obsidian"             # Markdown knowledge base
+
+# AI
+cask "claude"               # Claude desktop app (Anthropic)
+
+# Security & Password Management
+cask "1password"            # Password manager
+
+# Networking
+cask "tailscale"            # VPN mesh network
+
+# File Transfer
+cask "transmit"             # File transfer (S3, SFTP, etc.)
+
+# Database
+cask "tableplus"            # Database GUI
+
+# Version Control GUI
+cask "tower"                # Git Tower GUI
+cask "kaleidoscope"         # Diff & merge tool
+
+# Containers & Virtualisation
+cask "orbstack"             # Docker / Linux VMs (OrbStack)
+
+# Flashing / Imaging
+cask "balenaetcher"         # Bootable USB drive flasher
+
+# ---------------------------------------------------------------------------
+# Mac App Store (requires: brew install mas)
+# ---------------------------------------------------------------------------
+# Uncomment after signing into the Mac App Store:
+# brew "mas"
+# mas "1Password for Safari", id: 1569813296
