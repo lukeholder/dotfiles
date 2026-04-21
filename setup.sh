@@ -181,6 +181,21 @@ add_to_profile() {
   success "Added $label to $file"
 }
 
+ZPROFILE="$HOME/.zprofile"
+touch "$ZPROFILE"
+
+# Homebrew — add to .zprofile so it is available in login shells (mirrors the
+# "Next steps" prompt that Homebrew prints after installation).
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  add_to_profile "$ZPROFILE" \
+    'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' \
+    "Homebrew"
+elif [[ -f "/usr/local/bin/brew" ]]; then
+  add_to_profile "$ZPROFILE" \
+    'eval "$(/usr/local/bin/brew shellenv zsh)"' \
+    "Homebrew"
+fi
+
 ZSHRC="$HOME/.zshrc"
 touch "$ZSHRC"
 
