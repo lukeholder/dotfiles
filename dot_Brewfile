@@ -45,6 +45,7 @@ cask "firefox"
 cask "ghostty"
 
 # Editors & IDEs
+cask "jetbrains-toolbox"    # JetBrains IDE manager
 cask "visual-studio-code"
 
 # API Tools
