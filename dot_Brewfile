@@ -13,16 +13,21 @@ tap "ngrok/ngrok"
 # CLI Tools
 # ---------------------------------------------------------------------------
 brew "bat"                  # Better cat
+brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
 brew "eza"                  # Modern ls replacement
+brew "fd"                   # Fast find replacement
 brew "fzf"                  # Fuzzy finder
 brew "gh"                   # GitHub CLI
 brew "git"                  # Latest Git
 brew "jq"                   # JSON processor
+brew "lazygit"              # TUI git client
 brew "mise"                 # Runtime version manager
 brew "neovim"               # Neovim text editor
 brew "ripgrep"              # Fast grep (rg)
+brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
+brew "zoxide"               # Smarter cd
 brew "stripe/stripe-cli/stripe" # Stripe CLI
 
 # ngrok — expose local servers to the internet
@@ -46,6 +51,7 @@ cask "visual-studio-code"
 cask "bruno"                # Open-source API client
 
 # Communication & Productivity
+cask "cleanshot-x"          # Screenshot & recording
 cask "linear-linear"        # Linear issue tracker
 cask "notion"               # Note-taking & wiki
 cask "obsidian"             # Markdown knowledge base
