@@ -51,13 +51,13 @@ cask "notion"               # Note-taking & wiki
 cask "obsidian"             # Markdown knowledge base
 
 # AI
-cask "claude"               # Claude desktop app (Anthropic)
+cask "claude-code"               # Claude desktop app (Anthropic)
 
 # Security & Password Management
 cask "1password"            # Password manager
 
 # Networking
-cask "tailscale"            # VPN mesh network
+cask "tailscale-app"            # VPN mesh network
 
 # File Transfer
 cask "transmit"             # File transfer (S3, SFTP, etc.)

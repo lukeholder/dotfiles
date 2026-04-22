@@ -8,12 +8,12 @@
 # Font
 # ---------------------------------------------------------------------------
 font-family = "JetBrains Mono"
-font-size = 14
+font-size = 16
 
 # ---------------------------------------------------------------------------
 # Theme & Appearance
 # ---------------------------------------------------------------------------
-theme = "catppuccin-mocha"
+theme = "Catppuccin Frappe"
 
 # Window padding (pixels)
 window-padding-x = 12
