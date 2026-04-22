@@ -30,8 +30,6 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 # ---------------------------------------------------------------------------
 # 1. Xcode Command Line Tools
 # ---------------------------------------------------------------------------
@@ -41,7 +39,6 @@ if xcode-select -p &>/dev/null; then
 else
   info "Installing Xcode Command Line Tools (a dialog may appear)..."
   xcode-select --install
-  # Wait until the tools are installed
   until xcode-select -p &>/dev/null; do
     sleep 5
   done
@@ -60,10 +57,8 @@ else
 
   # Add Homebrew to PATH for the rest of this script
   if [[ -f "/opt/homebrew/bin/brew" ]]; then
-    # Apple Silicon
     eval "$(/opt/homebrew/bin/brew shellenv)"
   elif [[ -f "/usr/local/bin/brew" ]]; then
-    # Intel
     eval "$(/usr/local/bin/brew shellenv)"
   fi
   success "Homebrew installed"
@@ -73,23 +68,7 @@ info "Updating Homebrew..."
 brew update --quiet
 
 # ---------------------------------------------------------------------------
-# 3. Install packages from Brewfile
-# ---------------------------------------------------------------------------
-step "Brewfile packages"
-if [[ -f "$SCRIPT_DIR/Brewfile" ]]; then
-  info "Running brew bundle..."
-  if brew bundle --help 2>&1 | grep -q -- '--no-lock'; then
-    brew bundle --file="$SCRIPT_DIR/Brewfile" --no-lock
-  else
-    brew bundle --file="$SCRIPT_DIR/Brewfile"
-  fi
-  success "Brewfile packages installed"
-else
-  warn "Brewfile not found at $SCRIPT_DIR/Brewfile — skipping"
-fi
-
-# ---------------------------------------------------------------------------
-# 4. chezmoi — dotfile management
+# 3. chezmoi — dotfiles (must run before brew bundle so ~/.Brewfile exists)
 # ---------------------------------------------------------------------------
 step "chezmoi dotfiles"
 if ! command -v chezmoi &>/dev/null; then
@@ -109,61 +88,32 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-# 5. mise — runtime version manager
+# 4. Install packages from ~/.Brewfile (managed by chezmoi)
+# ---------------------------------------------------------------------------
+step "Brewfile packages"
+if [[ -f "$HOME/.Brewfile" ]]; then
+  info "Running brew bundle --global..."
+  brew bundle --global
+  success "Brewfile packages installed"
+else
+  warn "~/.Brewfile not found — skipping (chezmoi may not have applied correctly)"
+fi
+
+# ---------------------------------------------------------------------------
+# 5. mise — install language runtimes
 # ---------------------------------------------------------------------------
 step "mise runtimes"
 if ! command -v mise &>/dev/null; then
-  info "Installing mise..."
-  brew install mise
-fi
-
-# Activate mise for the rest of this script
-eval "$(mise activate bash 2>/dev/null || true)"
-
-# Write a global .mise.toml if one is not already present
-MISE_GLOBAL="$HOME/.config/mise/config.toml"
-if [[ ! -f "$MISE_GLOBAL" ]]; then
-  info "Writing global mise config..."
-  mkdir -p "$(dirname "$MISE_GLOBAL")"
-  cp "$SCRIPT_DIR/.mise.toml" "$MISE_GLOBAL"
-fi
-
-info "Installing language runtimes via mise (this may take a few minutes)..."
-mise install 2>/dev/null || warn "Some mise runtimes failed to install — re-run 'mise install' after setup"
-success "mise runtimes installed"
-
-# ---------------------------------------------------------------------------
-# 6. Claude Code CLI (requires Node, which mise just installed)
-# ---------------------------------------------------------------------------
-step "Claude Code CLI"
-if command -v claude &>/dev/null; then
-  success "Claude Code CLI already installed"
+  warn "mise not found — it should have been installed via Brewfile"
 else
-  # Ensure the mise-managed node is on PATH
   eval "$(mise activate bash 2>/dev/null || true)"
-  if command -v npm &>/dev/null; then
-    info "Installing Claude Code CLI..."
-    npm install -g @anthropic-ai/claude-code
-    success "Claude Code CLI installed"
-  else
-    warn "npm not found — skipping Claude Code CLI (run 'npm install -g @anthropic-ai/claude-code' after mise is activated)"
-  fi
+  info "Installing language runtimes via mise (this may take a few minutes)..."
+  mise install 2>/dev/null || warn "Some mise runtimes failed to install — re-run 'mise install' after setup"
+  success "mise runtimes installed"
 fi
 
 # ---------------------------------------------------------------------------
-# 7. ddev — local development environment
-# ---------------------------------------------------------------------------
-step "ddev"
-if command -v ddev &>/dev/null; then
-  success "ddev already installed"
-else
-  info "Installing ddev..."
-  brew install ddev/ddev/ddev
-  success "ddev installed"
-fi
-
-# ---------------------------------------------------------------------------
-# 8. fzf shell integration (creates ~/.fzf.zsh; ~/.zshrc is managed by chezmoi)
+# 6. fzf shell integration
 # ---------------------------------------------------------------------------
 step "fzf shell integration"
 if [[ -f "$(brew --prefix)/opt/fzf/install" ]] && [[ ! -f "$HOME/.fzf.zsh" ]]; then
@@ -187,6 +137,6 @@ echo "  1. Restart your terminal (or open a new tab)"
 echo "  2. Open 1Password and configure it"
 echo "  3. Sign into the App Store, then install 1Password for Safari:"
 echo "       mas install 1569813296"
-echo "  4. Open Ghostty, VS Code, and other apps to finish first-launch setup"
+echo "  4. Open Ghostty and other apps to finish first-launch setup"
 echo "  5. Run 'chezmoi edit' to customise your dotfiles"
 echo ""
