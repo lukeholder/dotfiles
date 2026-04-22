@@ -4,3 +4,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ else -}}
 eval "$(/usr/local/bin/brew shellenv)"
 {{ end -}}
+
+# OrbStack — command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
+# JetBrains Toolbox — CLI scripts
+export PATH="$PATH:/Users/{{ .chezmoi.username }}/Library/Application Support/JetBrains/Toolbox/scripts"
