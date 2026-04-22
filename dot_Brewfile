@@ -51,7 +51,7 @@ cask "visual-studio-code"
 cask "bruno"                # Open-source API client
 
 # Communication & Productivity
-cask "cleanshot-x"          # Screenshot & recording
+cask "cleanshot"            # Screenshot & recording
 cask "linear-linear"        # Linear issue tracker
 cask "notion"               # Note-taking & wiki
 cask "obsidian"             # Markdown knowledge base
