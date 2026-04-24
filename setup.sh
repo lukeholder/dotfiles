@@ -4,7 +4,7 @@
 # Run this script on a fresh macOS installation to bootstrap your environment.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/lukeholder/laptop/main/setup.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/lukeholder/dotfiles/main/setup.sh | bash
 #   — or —
 #   bash setup.sh
 
@@ -82,8 +82,8 @@ if [[ -d "$CHEZMOI_SOURCE/.git" ]]; then
   chezmoi apply
   success "chezmoi dotfiles applied"
 else
-  info "Initializing chezmoi from lukeholder/laptop..."
-  chezmoi init --apply lukeholder/laptop
+  info "Initializing chezmoi from lukeholder/dotfiles..."
+  chezmoi init --apply lukeholder/dotfiles
   success "chezmoi dotfiles applied"
 fi
 
