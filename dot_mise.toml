@@ -4,6 +4,9 @@
 # These versions are installed globally via `mise install`.
 # Override per-project by adding a .mise.toml in the project root.
 
+[settings]
+ruby.compile = false
+
 [tools]
 node    = "lts"
 php     = "latest"
