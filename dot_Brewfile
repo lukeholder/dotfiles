@@ -1,5 +1,5 @@
 # Homebrew Bundle — lukeholder/laptop
-# Install everything with: brew bundle --no-lock
+# Install everything with: brew bundle --global
 # https://github.com/Homebrew/homebrew-bundle
 
 # ---------------------------------------------------------------------------
@@ -13,6 +13,7 @@ tap "ngrok/ngrok"
 # CLI Tools
 # ---------------------------------------------------------------------------
 brew "bat"                  # Better cat
+brew "ddev"                 # PHP Development on Docker
 brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
 brew "eza"                  # Modern ls replacement
