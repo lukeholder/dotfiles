@@ -17,3 +17,15 @@ alias ls='eza --group-directories-first'
 alias ll='eza --long --git --header --group-directories-first'
 alias la='eza --long --git --header --all --group-directories-first'
 alias lt='eza --tree --level=2 --group-directories-first'
+
+# bat — modern cat replacement
+alias cat='bat'
+
+# zoxide — smarter cd
+eval "$(zoxide init zsh)"
+alias cd='z'
+
+# modern replacements
+alias find='fd'
+alias grep='rg'
+alias vim='nvim'
