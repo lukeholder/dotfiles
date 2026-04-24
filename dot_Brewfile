@@ -18,6 +18,7 @@ brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
 brew "eza"                  # Modern ls replacement
 brew "fd"                   # Fast find replacement
+brew "ffmpeg"               # Audio/video processing
 brew "fzf"                  # Fuzzy finder
 brew "gh"                   # GitHub CLI
 brew "git"                  # Latest Git
