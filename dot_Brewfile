@@ -1,4 +1,4 @@
-# Homebrew Bundle — lukeholder/laptop
+# Homebrew Bundle — lukeholder/dotfiles
 # Install everything with: brew bundle --global
 # https://github.com/Homebrew/homebrew-bundle
 
@@ -13,6 +13,7 @@ tap "ngrok/ngrok"
 # CLI Tools
 # ---------------------------------------------------------------------------
 brew "bat"                  # Better cat
+brew "chezmoi"              # Dotfile manager
 brew "ddev"                 # PHP Development on Docker
 brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
@@ -25,6 +26,7 @@ brew "git"                  # Latest Git
 brew "jq"                   # JSON processor
 brew "lazygit"              # TUI git client
 brew "mise"                 # Runtime version manager
+brew "mkcert"               # Local TLS certificates
 brew "neovim"               # Neovim text editor
 brew "ripgrep"              # Fast grep (rg)
 brew "tldr"                 # Practical man page summaries
@@ -61,7 +63,7 @@ cask "notion"               # Note-taking & wiki
 cask "obsidian"             # Markdown knowledge base
 
 # AI
-cask "claude-code"               # Claude desktop app (Anthropic)
+cask "claude"                    # Claude desktop app (Anthropic)
 
 # Security & Password Management
 cask "1password"            # Password manager
