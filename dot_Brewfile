@@ -31,6 +31,7 @@ brew "neovim"               # Neovim text editor
 brew "ripgrep"              # Fast grep (rg)
 brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
+brew "starship"             # Cross-shell prompt
 brew "zoxide"               # Smarter cd
 brew "stripe/stripe-cli/stripe" # Stripe CLI
 
@@ -47,6 +48,7 @@ cask "firefox"
 
 # Terminal
 cask "ghostty"
+cask "font-jetbrains-mono-nerd-font" # Nerd Font for starship prompt
 
 # Editors & IDEs
 cask "jetbrains-toolbox"    # JetBrains IDE manager
