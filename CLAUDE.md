@@ -13,7 +13,7 @@ macOS on Apple Silicon. Developer machine used for web/SaaS development.
 All dotfiles are managed with [chezmoi](https://chezmoi.io).
 
 - **Source directory:** `~/.local/share/chezmoi` (a git repo)
-- **Remote:** https://github.com/lukeholder/laptop
+- **Remote:** https://github.com/lukeholder/dotfiles
 - **Apply changes:** `chezmoi apply`
 - **Check drift:** `chezmoi status` / `chezmoi diff`
 
