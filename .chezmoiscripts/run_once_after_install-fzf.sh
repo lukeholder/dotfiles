@@ -3,6 +3,12 @@
 
 set -euo pipefail
 
+# Ensure brew is in PATH (needed on fresh installs)
+if ! command -v brew &>/dev/null; then
+  [[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+  [[ -f "/usr/local/bin/brew" ]] && eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 FZF_INSTALL="$(brew --prefix)/opt/fzf/install"
 
 if [[ ! -f "$FZF_INSTALL" ]]; then

@@ -1,8 +1,24 @@
-# laptop
+# dotfiles
 
-Idempotent MacBook Pro developer setup script + [chezmoi](https://www.chezmoi.io) dotfiles.
+macOS dotfiles managed with [chezmoi](https://www.chezmoi.io).
 
-## What it installs
+## Fresh Mac setup
+
+```sh
+sh -c "$(curl -fsSL get.chezmoi.io)" -- init --apply lukeholder/dotfiles
+```
+
+This single command:
+1. Installs a standalone `chezmoi` binary
+2. Clones this repo to `~/.local/share/chezmoi`
+3. Installs Xcode Command Line Tools (if needed)
+4. Installs Homebrew (if needed)
+5. Applies all dotfiles
+6. Runs `brew bundle --global` to install all packages
+7. Installs mise language runtimes
+8. Sets up fzf shell integration
+
+## What gets installed
 
 ### CLI Tools
 | Tool | Purpose |
@@ -10,6 +26,8 @@ Idempotent MacBook Pro developer setup script + [chezmoi](https://www.chezmoi.io
 | [bat](https://github.com/sharkdp/bat) | Better `cat` |
 | [difftastic](https://github.com/Wilfred/difftastic) | Structural diff |
 | [eza](https://github.com/eza-community/eza) | Modern `ls` |
+| [fd](https://github.com/sharkdp/fd) | Modern `find` |
+| [ffmpeg](https://ffmpeg.org) | Audio/video processing |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
 | [gh](https://cli.github.com) | GitHub CLI |
 | [git](https://git-scm.com) | Latest Git |
@@ -20,14 +38,15 @@ Idempotent MacBook Pro developer setup script + [chezmoi](https://www.chezmoi.io
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | Fast `grep` |
 | [stripe-cli](https://stripe.com/docs/stripe-cli) | Stripe CLI |
 | [tmux](https://github.com/tmux/tmux) | Terminal multiplexer |
+| [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
 
-### Apps (via `brew install --cask`)
+### Apps (via Homebrew cask)
 | App | Purpose |
 |-----|---------|
 | 1Password | Password manager |
 | balenaEtcher | Flash OS images to USB |
 | Bruno | Open-source API client |
-| Claude | Anthropic Claude desktop app |
+| Claude Code | Anthropic Claude desktop app |
 | Firefox | Browser |
 | Ghostty | GPU-accelerated terminal |
 | Google Chrome | Browser |
@@ -42,7 +61,7 @@ Idempotent MacBook Pro developer setup script + [chezmoi](https://www.chezmoi.io
 | Transmit | File transfer (S3, SFTP…) |
 | Visual Studio Code | Code editor |
 
-> **1Password for Safari** is available on the Mac App Store — run `mas install 1569813296` after signing in.
+> **1Password for Safari** is on the Mac App Store — run `mas install 1569813296` after signing in.
 
 ### Runtimes (via [mise](https://mise.jdx.dev))
 - Node.js (LTS)
@@ -52,63 +71,40 @@ Idempotent MacBook Pro developer setup script + [chezmoi](https://www.chezmoi.io
 - Crystal (latest)
 - Bun (latest)
 
-### Claude Code CLI
-Installed via `npm install -g @anthropic-ai/claude-code` after Node is available.
+## Dotfiles
 
-### ddev
-Local development environment — installed via `brew install ddev/ddev/ddev`.
-
-## Dotfiles managed by chezmoi
-
-| Dotfile | Target |
-|---------|--------|
-| `dot_gitconfig.tmpl` | `~/.gitconfig` (prompts for name & email) |
+| Source | Target |
+|--------|--------|
+| `dot_gitconfig.tmpl` | `~/.gitconfig` |
+| `dot_zshrc.tmpl` | `~/.zshrc` |
+| `dot_zprofile.tmpl` | `~/.zprofile` |
+| `dot_mise.toml` | `~/.mise.toml` |
 | `dot_tmux.conf` | `~/.tmux.conf` |
+| `dot_Brewfile` | `~/.Brewfile` |
 | `dot_config/ghostty/config` | `~/.config/ghostty/config` |
 | `dot_config/nvim/init.lua` | `~/.config/nvim/init.lua` |
 
-## Usage
-
-### Fresh Mac setup (one-liner)
+## Day-to-day usage
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/lukeholder/laptop/main/setup.sh | bash
-```
-
-### Manual setup
-
-```sh
-# Clone this repo
-git clone https://github.com/lukeholder/laptop.git ~/laptop
-cd ~/laptop
-
-# Run the setup script
-bash setup.sh
-```
-
-### Apply dotfiles only (after initial setup)
-
-```sh
+# Apply dotfile changes (also re-runs any changed scripts)
 chezmoi apply
-```
 
-### Update everything
+# Edit a dotfile
+chezmoi edit ~/.zshrc
 
-```sh
+# Pull latest and apply
+chezmoi update
+
+# Check for drift
+chezmoi status
+chezmoi diff
+
+# Update all packages
 brew update && brew upgrade && brew upgrade --cask
 mise self-update && mise upgrade
-chezmoi update
 ```
 
-### Edit a dotfile
+## Adding packages
 
-```sh
-chezmoi edit ~/.config/ghostty/config
-chezmoi apply
-```
-
-## Customisation
-
-- **Runtimes**: edit `.mise.toml` and run `mise install`
-- **Packages**: edit `Brewfile` and run `brew bundle --no-lock`
-- **Dotfiles**: edit the `dot_*` files and run `chezmoi apply`
+Edit `~/.Brewfile` (or `chezmoi edit ~/.Brewfile`), then run `chezmoi apply` — the `brew bundle --global` script runs automatically when the Brewfile changes.
