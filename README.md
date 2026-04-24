@@ -93,8 +93,12 @@ chezmoi apply
 # Edit a dotfile
 chezmoi edit ~/.zshrc
 
-# Pull latest and apply
+# Pull latest from repo and apply
 chezmoi update
+
+# Push local changes up to the repo
+dotpush              # commits with "update dotfiles"
+dotpush "add foo"    # commits with a custom message
 
 # Check for drift
 chezmoi status
