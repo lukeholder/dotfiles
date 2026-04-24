@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+# Re-runs automatically whenever dot_Brewfile changes.
+
+set -euo pipefail
+
+echo "==> Running brew bundle..."
+brew bundle --global
+echo "✓ Brewfile packages installed"
