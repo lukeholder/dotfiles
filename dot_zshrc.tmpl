@@ -10,3 +10,10 @@ eval "$(mise activate zsh)"
 
 # fzf — key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# eza — modern ls replacement
+export EZA_ICONS_AUTO=1
+alias ls='eza --group-directories-first'
+alias ll='eza --long --git --header --group-directories-first'
+alias la='eza --long --git --header --all --group-directories-first'
+alias lt='eza --tree --level=2 --group-directories-first'

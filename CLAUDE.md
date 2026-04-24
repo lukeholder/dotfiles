@@ -1,5 +1,9 @@
 # Luke's Laptop — Claude Context
 
+## Instructions for Claude
+
+When editing this file (`~/CLAUDE.md`), always edit the source in the chezmoi repo at `~/.local/share/chezmoi/CLAUDE.md`, then run `chezmoi apply` to propagate the change to `~/CLAUDE.md`.
+
 ## Machine setup
 
 macOS on Apple Silicon. Developer machine used for web/SaaS development.
