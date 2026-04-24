@@ -13,7 +13,7 @@ font-size = 16
 # ---------------------------------------------------------------------------
 # Theme & Appearance
 # ---------------------------------------------------------------------------
-theme = "Catppuccin Frappe"
+theme = "Catppuccin Mocha"
 
 # Window padding (pixels)
 window-padding-x = 12
