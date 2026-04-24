@@ -29,3 +29,8 @@ alias cd='z'
 alias find='fd'
 alias grep='rg'
 alias vim='nvim'
+
+# chezmoi — push dotfile changes
+function dotpush() {
+  cd ~/.local/share/chezmoi && git add -A && git commit -m "${1:-update dotfiles}" && git push
+}
