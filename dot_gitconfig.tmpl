@@ -25,20 +25,24 @@
 
 [merge]
 	conflictstyle = zdiff3
+{{ if eq .chezmoi.os "darwin" -}}
 	tool          = Kaleidoscope
 
 [mergetool "Kaleidoscope"]
 	cmd  = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+{{ end -}}
 
 [diff]
 	algorithm     = histogram
 	colorMoved    = default
+{{ if eq .chezmoi.os "darwin" -}}
 	tool          = Kaleidoscope
 	external      = difft
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+{{ end -}}
 
 [color]
 	ui = auto
@@ -52,8 +56,10 @@
 	undo = reset --soft HEAD~1
 	wip  = commit -am "WIP"
 
+{{ if eq .chezmoi.os "darwin" -}}
 [credential]
 	helper = osxkeychain
+{{ end -}}
 
 [filter "lfs"]
 	clean    = git-lfs clean -- %f

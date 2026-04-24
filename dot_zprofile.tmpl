@@ -9,4 +9,4 @@ eval "$(/usr/local/bin/brew shellenv)"
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # JetBrains Toolbox — CLI scripts
-export PATH="$PATH:/Users/{{ .chezmoi.username }}/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:{{ .chezmoi.homeDir }}/Library/Application Support/JetBrains/Toolbox/scripts"
