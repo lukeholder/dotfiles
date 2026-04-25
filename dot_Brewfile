@@ -48,7 +48,6 @@ cask "firefox"
 
 # Terminal
 cask "ghostty"
-cask "font-jetbrains-mono-nerd-font" # Nerd Font for starship prompt
 
 # Editors & IDEs
 cask "jetbrains-toolbox"    # JetBrains IDE manager
