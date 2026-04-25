@@ -21,10 +21,6 @@ alias lt='eza --tree --level=2 --group-directories-first'
 # bat — modern cat replacement
 alias cat='bat'
 
-# zoxide — smarter cd
-eval "$(zoxide init zsh)"
-alias cd='z'
-
 # modern replacements
 alias find='fd'
 alias grep='rg'
@@ -37,3 +33,7 @@ eval "$(starship init zsh)"
 function dotpush() {
   cd ~/.local/share/chezmoi && git add -A && git commit -m "${1:-update dotfiles}" && git push
 }
+
+# zoxide — smarter cd (must be at end of .zshrc)
+eval "$(zoxide init zsh)"
+alias cd='z'
