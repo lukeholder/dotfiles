@@ -58,6 +58,7 @@ cask "bruno"                # Open-source API client
 
 # Communication & Productivity
 cask "cleanshot"            # Screenshot & recording
+cask "swish"                # Trackpad gesture app
 cask "slack"                # Team messaging
 cask "linear-linear"        # Linear issue tracker
 cask "notion"               # Note-taking & wiki
