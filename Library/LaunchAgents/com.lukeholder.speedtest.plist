@@ -8,7 +8,6 @@
     <key>ProgramArguments</key>
     <array>
         <string>/opt/homebrew/bin/speedtest-cli</string>
-        <string>--json</string>
     </array>
 
     <key>StartInterval</key>
