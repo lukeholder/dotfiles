@@ -32,6 +32,7 @@ brew "ripgrep"              # Fast grep (rg)
 brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
 brew "starship"             # Cross-shell prompt
+brew "speedtest-cli"        # Internet speed test (Speedtest.net)
 brew "zoxide"               # Smarter cd
 brew "stripe/stripe-cli/stripe" # Stripe CLI
 
