@@ -1,0 +1,33 @@
+#!/bin/bash
+# Check for Mac App Store apps not listed in mac-app-store.md in the dotfiles repo.
+# Usage: check-mas-apps
+
+LIST="$HOME/.local/share/chezmoi/mac-app-store.md"
+
+if [[ ! -f "$LIST" ]]; then
+    echo "App list not found: $LIST" >&2
+    exit 1
+fi
+
+# Installed MAS app names (strip .app suffix)
+installed=$(system_profiler SPApplicationsDataType -json 2>/dev/null \
+    | jq -r '.SPApplicationsDataType[] | select(.obtained_from == "mac_app_store") | .path | split("/")[-1] | sub("\\.app$"; "")')
+
+# Approved names from the md file (lines starting with "- ")
+approved=$(grep '^ *- ' "$LIST" | sed 's/^ *- //')
+
+unlisted=()
+while IFS= read -r app; do
+    if ! echo "$approved" | grep -qxF "$app"; then
+        unlisted+=("$app")
+    fi
+done <<< "$installed"
+
+if [[ ${#unlisted[@]} -eq 0 ]]; then
+    echo "All MAS apps are listed in mac-app-store.md"
+    exit 0
+fi
+
+message="Not in mac-app-store.md: $(IFS=', '; echo "${unlisted[*]}")"
+echo "$message"
+osascript -e "display notification \"$message\" with title \"MAS App Check\""
