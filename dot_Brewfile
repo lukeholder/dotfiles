@@ -89,6 +89,9 @@ cask "kaleidoscope"         # Diff & merge tool
 # Containers & Virtualisation
 cask "orbstack"             # Docker / Linux VMs (OrbStack)
 
+# Gaming
+cask "steam"                # Steam game client
+
 # Flashing / Imaging
 cask "balenaetcher"         # Bootable USB drive flasher
 
