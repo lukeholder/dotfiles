@@ -63,6 +63,7 @@ cask "bruno"                # Open-source API client
 cask "cleanshot"            # Screenshot & recording
 cask "swish"                # Trackpad gesture app
 cask "discord"              # Discord
+cask "front"                # Front (shared inbox & customer support)
 cask "slack"                # Team messaging
 cask "whatsapp"             # WhatsApp desktop
 cask "linear-linear"        # Linear issue tracker
