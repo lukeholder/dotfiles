@@ -92,6 +92,9 @@ cask "orbstack"             # Docker / Linux VMs (OrbStack)
 # Gaming
 cask "steam"                # Steam game client
 
+# Media
+cask "vlc"                  # VLC media player
+
 # Flashing / Imaging
 cask "balenaetcher"         # Bootable USB drive flasher
 
