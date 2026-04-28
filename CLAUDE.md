@@ -48,8 +48,22 @@ git add -A && git commit -m "..." && git push
 
 ### .chezmoiignore
 
-`LICENSE`, `README.md`, and `setup.sh` exist in the repo but are excluded from
-being copied to `~` via `.chezmoiignore`.
+`LICENSE`, `README.md`, `setup.sh`, and `mac-app-store.md` exist in the repo
+but are excluded from being copied to `~` via `.chezmoiignore`.
+
+### Custom scripts — `~/.local/bin`
+
+`dot_local/bin/` in the chezmoi source deploys to `~/.local/bin/`, which is in
+`PATH` (set in `.zshrc`). Use the `executable_` filename prefix so chezmoi sets
+the executable bit automatically (e.g. `executable_check-mas-apps`).
+
+### Mac App Store apps — `mac-app-store.md`
+
+`mac-app-store.md` (repo-only, not applied to `~`) lists approved MAS apps.
+Run `check-mas-apps` to detect any MAS app installed on the machine that isn't
+on the list. It uses `system_profiler SPApplicationsDataType -json` — no `mas`
+CLI required. When adding a new MAS app, use the exact name that
+`system_profiler` reports (strip the `.app` suffix).
 
 ## Package management — Homebrew
 
@@ -80,6 +94,8 @@ brew bundle --global
 | `ddev` | Local dev environment (PHP/WordPress) |
 | `stripe` | Stripe CLI |
 | `ngrok` | Expose local servers |
+| `speedtest` | Internet speed test (Ookla, via `teamookla/speedtest` tap) |
+| `check-mas-apps` | Audit MAS apps against `mac-app-store.md` |
 
 ### Key apps
 
@@ -95,6 +111,19 @@ brew bundle --global
 | JetBrains Toolbox | IDE manager |
 | CleanShot | Screenshots |
 | Transmit | File transfer (S3, SFTP) |
+| Discord | Chat |
+| Slack | Team messaging |
+| WhatsApp | Messaging |
+| Front | Shared inbox / customer support |
+| Steam | Gaming |
+| VLC | Media player |
+
+### Non-standard Homebrew taps
+
+| Tap | Purpose |
+|-----|---------|
+| `teamookla/speedtest` | Official Ookla speedtest CLI |
+| `homebrew-ffmpeg/ffmpeg` | ffmpeg with extra codec options — installed with `--with-zimg` |
 
 ## Shell
 
