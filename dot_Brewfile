@@ -9,6 +9,7 @@ tap "ddev/ddev"
 tap "stripe/stripe-cli"
 tap "ngrok/ngrok"
 tap "teamookla/speedtest"
+tap "homebrew-ffmpeg/ffmpeg"
 
 # ---------------------------------------------------------------------------
 # CLI Tools
@@ -20,7 +21,7 @@ brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
 brew "eza"                  # Modern ls replacement
 brew "fd"                   # Fast find replacement
-brew "ffmpeg"               # Audio/video processing
+brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-zimg"] # Audio/video processing (with zimg)
 brew "fzf"                  # Fuzzy finder
 brew "gh"                   # GitHub CLI
 brew "git"                  # Latest Git
