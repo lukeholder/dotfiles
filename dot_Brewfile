@@ -103,7 +103,6 @@ cask "steam"                # Steam game client
 
 # Media
 cask "vlc"                  # VLC media player
-cask "hdhomerun"            # HDHomeRun network tuner app
 
 # Flashing / Imaging
 cask "balenaetcher"         # Bootable USB drive flasher
