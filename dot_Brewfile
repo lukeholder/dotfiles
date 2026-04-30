@@ -37,6 +37,8 @@ brew "tmux"                 # Terminal multiplexer
 brew "starship"             # Cross-shell prompt
 brew "teamookla/speedtest/speedtest" # Internet speed test (Ookla official CLI)
 brew "zoxide"               # Smarter cd
+brew "zsh-autosuggestions"  # Fish-like inline command suggestions
+brew "zsh-syntax-highlighting" # Command syntax highlighting as you type
 brew "stripe/stripe-cli/stripe" # Stripe CLI
 
 # ngrok — expose local servers to the internet

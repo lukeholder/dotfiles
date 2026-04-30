@@ -49,5 +49,12 @@ function dotpush() {
   cd ~/.local/share/chezmoi && git add -A && git commit -m "${1:-update dotfiles}" && git push
 }
 
+# zsh-autosuggestions — fish-like inline suggestions (→ to accept)
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting — must be last plugin sourced
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # zoxide — smarter cd (must be at end of .zshrc)
+export _ZO_DOCTOR=0
 eval "$(zoxide init zsh --cmd cd)"
