@@ -19,6 +19,7 @@ brew "chezmoi"              # Dotfile manager
 brew "ddev"                 # PHP Development on Docker
 brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
+brew "duti"                 # Set default apps for file types
 brew "eza"                  # Modern ls replacement
 brew "fd"                   # Fast find replacement
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-zimg"] # Audio/video processing (with zimg)
