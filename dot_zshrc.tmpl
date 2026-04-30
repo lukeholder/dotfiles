@@ -11,8 +11,14 @@ eval "$(/usr/local/bin/brew shellenv)"
 # mise — runtime version manager
 eval "$(mise activate zsh)"
 
+# zsh completion
+autoload -Uz compinit && compinit
+
 # fzf — key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fzf-tab — replace Tab completion menu with fzf picker (must be after compinit and fzf)
+source "/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
 
 # eza — modern ls replacement
 export EZA_ICONS_AUTO=1

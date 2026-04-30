@@ -23,6 +23,7 @@ brew "eza"                  # Modern ls replacement
 brew "fd"                   # Fast find replacement
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-zimg"] # Audio/video processing (with zimg)
 brew "fzf"                  # Fuzzy finder
+brew "fzf-tab"              # Replace zsh Tab completion menu with fzf
 brew "gh"                   # GitHub CLI
 brew "git"                  # Latest Git
 brew "jq"                   # JSON processor
