@@ -13,13 +13,14 @@ eval "$(mise activate zsh)"
 
 # zsh completion
 autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # fzf — key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fzf-tab — replace Tab completion menu with fzf picker (must be after compinit and fzf)
 source "/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
+# Let fzf handle all fuzzy filtering so filenames are inserted with correct case
+zstyle ':fzf-tab:*' prefix ''
 
 # eza — modern ls replacement
 export EZA_ICONS_AUTO=1
