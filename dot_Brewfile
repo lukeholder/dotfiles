@@ -74,6 +74,7 @@ cask "obsidian"             # Markdown knowledge base
 
 # AI
 cask "claude"                    # Claude desktop app (Anthropic)
+cask "claude-code"               # Claude Code CLI (Anthropic)
 
 # Security & Password Management
 cask "1password"            # Password manager
