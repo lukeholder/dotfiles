@@ -109,6 +109,61 @@ brew update && brew upgrade && brew upgrade --cask
 mise self-update && mise upgrade
 ```
 
+## CLI cheatsheet
+
+### Shell navigation
+
+| Key / Command | What it does |
+|---|---|
+| `cd foo` | Jump to any previously-visited directory matching `foo` (powered by [zoxide](https://github.com/ajeetdsouza/zoxide)) |
+| `zi` | Interactive zoxide jump — opens fzf over your frecency history |
+| `Tab` (after any command) | Opens an [fzf-tab](https://github.com/Aloxaf/fzf-tab) fuzzy picker over all completions — works for paths, git branches, flags, etc. |
+| `Ctrl+R` | Fuzzy search shell history with fzf |
+| `Ctrl+T` | Fuzzy-pick a file from the current tree and insert its path |
+| `Alt+C` | Fuzzy-pick a directory and `cd` into it |
+
+### File listing (eza)
+
+```sh
+ls        # directories first, icons
+ll        # long format + git status column
+la        # long format + hidden files
+lt        # tree view, 2 levels deep
+```
+
+### Search (ripgrep / fd)
+
+```sh
+grep "pattern" .          # ripgrep (rg) — fast recursive search
+grep -t py "pattern"      # search only Python files
+find "*.log"              # fd — fast file finder
+find . -e log             # fd by extension
+```
+
+### File viewing (bat)
+
+```sh
+cat file.json             # bat — syntax-highlighted, line-numbered output
+cat --plain file          # disable decorations
+```
+
+### Git extras
+
+| Tool | Usage |
+|---|---|
+| [delta](https://github.com/dandavison/delta) | Prettier diffs — used automatically by `git diff` / `git log -p` |
+| [lazygit](https://github.com/jesseduffield/lazygit) | `lazygit` — full TUI git client |
+| `tw` | `gittower .` — open Tower in current repo |
+
+### Runtime versions (mise)
+
+```sh
+mise use node@lts          # set Node version for current project
+mise use python@3.12       # set Python version
+mise ls                    # list installed runtimes
+mise upgrade               # upgrade all runtimes
+```
+
 ## Adding packages
 
 Edit `~/.Brewfile` (or `chezmoi edit ~/.Brewfile`), then run `chezmoi apply` — the `brew bundle --global` script runs automatically when the Brewfile changes.
