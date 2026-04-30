@@ -1,0 +1,6 @@
+# duti file-type associations
+# Format: bundle-id  extension  role
+# Roles: all, viewer, editor, shell
+
+# Video / Playlist
+org.videolan.vlc	m3u	all
