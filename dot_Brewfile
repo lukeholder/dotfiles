@@ -19,6 +19,7 @@ brew "chezmoi"              # Dotfile manager
 brew "ddev"                 # PHP Development on Docker
 brew "delta"                # Better git diffs
 brew "difftastic"           # Structural diff tool
+brew "doctl"                # DigitalOcean CLI
 brew "duti"                 # Set default apps for file types
 brew "eza"                  # Modern ls replacement
 brew "fd"                   # Fast find replacement
@@ -72,7 +73,7 @@ cask "discord"              # Discord
 cask "front"                # Front (shared inbox & customer support)
 cask "slack"                # Team messaging
 cask "whatsapp"             # WhatsApp desktop
-cask "linear-linear"        # Linear issue tracker
+cask "linear"               # Linear issue tracker
 cask "notion"               # Note-taking & wiki
 cask "obsidian"             # Markdown knowledge base
 
@@ -98,6 +99,7 @@ cask "kaleidoscope"         # Diff & merge tool
 
 # Containers & Virtualisation
 cask "orbstack"             # Docker / Linux VMs (OrbStack)
+cask "utm"                  # Virtual machines (QEMU-based)
 
 # Gaming
 cask "steam"                # Steam game client
@@ -107,6 +109,12 @@ cask "vlc"                  # VLC media player
 
 # Flashing / Imaging
 cask "balenaetcher"         # Bootable USB drive flasher
+
+# ---------------------------------------------------------------------------
+# Manual installs (require interactive sudo — run: brew-bundle-manual)
+# ---------------------------------------------------------------------------
+# Some casks use .pkg installers that need sudo and cannot run non-interactively.
+# They live in ~/.BrewfileManual. Install them by running: brew-bundle-manual
 
 # ---------------------------------------------------------------------------
 # Mac App Store (requires: brew install mas)
