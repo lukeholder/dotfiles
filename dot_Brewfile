@@ -87,7 +87,8 @@ cask "1password"            # Password manager
 # Networking
 cask "tailscale-app"            # VPN mesh network
 
-# File Transfer
+# File Transfer & Cloud Storage
+cask "dropbox"              # Dropbox cloud storage
 cask "transmit"             # File transfer (S3, SFTP, etc.)
 
 # Database
