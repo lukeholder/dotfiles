@@ -6,6 +6,7 @@ Run `check-mas-apps` to find any installed app not on this list.
 ## Approved Apps
 
 - Amphetamine
+- Xcode
 - Disk Speed Test
 - GarageBand
 - iMovie
