@@ -10,6 +10,7 @@ tap "stripe/stripe-cli"
 tap "ngrok/ngrok"
 tap "teamookla/speedtest"
 tap "homebrew-ffmpeg/ffmpeg"
+tap "hudochenkov/sshpass"
 
 # ---------------------------------------------------------------------------
 # CLI Tools
@@ -33,6 +34,7 @@ brew "lazygit"              # TUI git client
 brew "mise"                 # Runtime version manager
 brew "mkcert"               # Local TLS certificates
 brew "neovim"               # Neovim text editor
+brew "parallel"             # Shell command parallelization
 brew "ripgrep"              # Fast grep (rg)
 brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
@@ -41,6 +43,7 @@ brew "teamookla/speedtest/speedtest" # Internet speed test (Ookla official CLI)
 brew "zoxide"               # Smarter cd
 brew "zsh-autosuggestions"  # Fish-like inline command suggestions
 brew "zsh-syntax-highlighting" # Command syntax highlighting as you type
+brew "hudochenkov/sshpass/sshpass" # SSH password authentication
 brew "stripe/stripe-cli/stripe" # Stripe CLI
 
 # ngrok — expose local servers to the internet
