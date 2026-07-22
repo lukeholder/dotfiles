@@ -11,6 +11,7 @@ tap "ngrok/ngrok"
 tap "teamookla/speedtest"
 tap "homebrew-ffmpeg/ffmpeg"
 tap "hudochenkov/sshpass"
+tap "anomalyco/tap"
 
 # ---------------------------------------------------------------------------
 # CLI Tools
@@ -46,6 +47,7 @@ brew "zsh-autosuggestions"  # Fish-like inline command suggestions
 brew "zsh-syntax-highlighting" # Command syntax highlighting as you type
 brew "hudochenkov/sshpass/sshpass" # SSH password authentication
 brew "stripe/stripe-cli/stripe" # Stripe CLI
+brew "anomalyco/tap/opencode"   # OpenCode AI coding assistant
 
 # ngrok — expose local servers to the internet
 cask "ngrok"

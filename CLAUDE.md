@@ -4,6 +4,8 @@
 
 When editing this file (`~/CLAUDE.md`), always edit the source in the chezmoi repo at `~/.local/share/chezmoi/CLAUDE.md`, then run `chezmoi apply` to propagate the change to `~/CLAUDE.md`.
 
+Never use typographic/curly quotes (' U+2018, ' U+2019, " U+201C, " U+201D) in code. Only use straight ASCII quotes (' U+0027, " U+0022).
+
 ## Machine setup
 
 macOS on Apple Silicon. Developer machine used for web/SaaS development.
@@ -78,6 +80,17 @@ chezmoi add ~/.Brewfile
 brew bundle --global
 ```
 
+### Manual installs — `~/.BrewfileManual`
+
+Some casks use `.pkg` installers that require `sudo` and cannot run non-interactively (chezmoi run scripts have no terminal). These live in `~/.BrewfileManual` instead of `~/.Brewfile`.
+
+```sh
+# Install manual casks (will prompt for password)
+brew-bundle-manual
+```
+
+When adding a new cask: if `brew info --cask <name>` shows an `artifacts` line with `.pkg`, put it in `~/.BrewfileManual` rather than `~/.Brewfile`. The automated `brew bundle` run will remind you to run `brew-bundle-manual` after it completes.
+
 ### Key CLI tools
 
 | Tool | Purpose |
@@ -124,6 +137,8 @@ brew bundle --global
 |-----|---------|
 | `teamookla/speedtest` | Official Ookla speedtest CLI |
 | `homebrew-ffmpeg/ffmpeg` | ffmpeg with extra codec options — installed with `--with-zimg` |
+| `hudochenkov/sshpass` | sshpass (removed from Homebrew core) |
+| `anomalyco/tap` | OpenCode AI coding assistant |
 
 ## Shell
 
