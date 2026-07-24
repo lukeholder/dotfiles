@@ -35,6 +35,7 @@ brew "lazygit"              # TUI git client
 brew "mise"                 # Runtime version manager
 brew "mkcert"               # Local TLS certificates
 brew "neovim"               # Neovim text editor
+brew "nmap"                 # Network scanner
 brew "ocaml"                # OCaml programming language
 brew "parallel"             # Shell command parallelization
 brew "ripgrep"              # Fast grep (rg)
