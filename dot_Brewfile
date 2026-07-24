@@ -38,6 +38,7 @@ brew "neovim"               # Neovim text editor
 brew "ocaml"                # OCaml programming language
 brew "parallel"             # Shell command parallelization
 brew "ripgrep"              # Fast grep (rg)
+brew "scrcpy"               # Display & control Android devices
 brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
 brew "starship"             # Cross-shell prompt
@@ -116,6 +117,9 @@ cask "vlc"                  # VLC media player
 
 # Flashing / Imaging
 cask "balenaetcher"         # Bootable USB drive flasher
+
+# Mobile / Android
+cask "android-platform-tools" # adb & fastboot (required by scrcpy)
 
 # ---------------------------------------------------------------------------
 # Manual installs (require interactive sudo — run: brew-bundle-manual)
