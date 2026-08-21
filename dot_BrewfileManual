@@ -1,0 +1,9 @@
+# BrewfileManual — casks that require interactive installation
+# These use .pkg installers that need sudo and cannot run non-interactively.
+#
+# These are NOT installed by `brew bundle --global`. Run manually with:
+#   brew-bundle-manual
+
+cask "arq"              # Arq Backup
+cask "macfuse"          # macFUSE kernel extension (FUSE for macOS)
+cask "zoom"             # Video conferencing

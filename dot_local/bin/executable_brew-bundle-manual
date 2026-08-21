@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BREWFILE_MANUAL="$HOME/.BrewfileManual"
+
+if [[ ! -f "$BREWFILE_MANUAL" ]]; then
+  echo "No ~/.BrewfileManual found — nothing to install."
+  exit 0
+fi
+
+echo ""
+echo "==> Installing casks that require interactive authentication..."
+echo "    (These use .pkg installers and will prompt for your password)"
+echo ""
+
+brew bundle --file="$BREWFILE_MANUAL"
+
+echo ""
+echo "✓ Manual casks installed"

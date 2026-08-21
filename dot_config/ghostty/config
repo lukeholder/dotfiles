@@ -25,6 +25,9 @@ background-opacity = 0.95
 # Use native macOS tabs
 macos-titlebar-style = "tabs"
 
+# App icon
+macos-icon = xray
+
 # ---------------------------------------------------------------------------
 # Shell
 # ---------------------------------------------------------------------------

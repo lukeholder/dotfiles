@@ -121,6 +121,7 @@ cask "balenaetcher"         # Bootable USB drive flasher
 
 # Mobile / Android
 cask "android-platform-tools" # adb & fastboot (required by scrcpy)
+cask "android-studio"        # Android Studio IDE
 
 # ---------------------------------------------------------------------------
 # Manual installs (require interactive sudo — run: brew-bundle-manual)

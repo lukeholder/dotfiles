@@ -164,6 +164,18 @@ mise ls                    # list installed runtimes
 mise upgrade               # upgrade all runtimes
 ```
 
+## Manual installs (not via Homebrew)
+
+Some tools must be installed outside of Homebrew because the Homebrew build omits features that require system-level integration.
+
+| Tool | Install | Reason |
+|------|---------|--------|
+| [rclone](https://rclone.org/downloads/) | See below | The Homebrew build of rclone does not support `rclone mount` on macOS — FUSE support is stripped out. Use the official installer instead. |
+
+```sh
+sudo -v ; curl https://rclone.org/install.sh | sudo bash
+```
+
 ## Adding packages
 
 Edit `~/.Brewfile` (or `chezmoi edit ~/.Brewfile`), then run `chezmoi apply` — the `brew bundle --global` script runs automatically when the Brewfile changes.
