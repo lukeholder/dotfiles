@@ -44,6 +44,7 @@ brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
 brew "starship"             # Cross-shell prompt
 brew "teamookla/speedtest/speedtest" # Internet speed test (Ookla official CLI)
+brew "yt-dlp"                # YouTube/video downloader
 brew "zoxide"               # Smarter cd
 brew "zsh-autosuggestions"  # Fish-like inline command suggestions
 brew "zsh-syntax-highlighting" # Command syntax highlighting as you type
