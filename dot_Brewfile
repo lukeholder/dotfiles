@@ -40,6 +40,7 @@ brew "ocaml"                # OCaml programming language
 brew "parallel"             # Shell command parallelization
 brew "ripgrep"              # Fast grep (rg)
 brew "scrcpy"               # Display & control Android devices
+brew "termscp"               # Terminal file transfer client (SFTP/SCP/S3/etc.)
 brew "tldr"                 # Practical man page summaries
 brew "tmux"                 # Terminal multiplexer
 brew "starship"             # Cross-shell prompt
