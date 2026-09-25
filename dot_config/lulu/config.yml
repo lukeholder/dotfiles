@@ -1,0 +1,37 @@
+paths:
+  repos: ~/Code/Repos           # main clones, one per package; worktrees come from these
+  sandboxes: ~/Code/Sandboxes   # where sandboxes live
+  seeds: ~/.config/lulu/seeds   # saved DB + project-config snapshots
+
+default_craft: 5                # used when the major can't be inferred (§5.3)
+
+craft:
+  "5":
+    php: "8.3"
+    db: mysql:8.0
+    constraint: ^5.0            # used when cms isn't checked out locally
+    seed: ~                     # default seed for `new` (null = fresh install)
+  "6":
+    php: "8.5"
+    db: mysql:8.4
+    constraint: ^6.0@alpha
+    seed: ~
+
+admin:
+  username: admin
+  password: password
+  email: admin@example.test
+
+packages:
+  cms:
+    composer: craftcms/cms
+    git: git@github.com:craftcms/cms.git
+  commerce:
+    composer: craftcms/commerce
+    handle: commerce
+    git: git@github.com:craftcms/commerce.git
+    craft_major_map: {"5": 5, "6": 6}   # plugin major -> Craft major (optional, §5.3)
+  stripe:
+    composer: craftcms/commerce-stripe
+    handle: commerce-stripe
+    git: git@github.com:craftcms/commerce-stripe.git
