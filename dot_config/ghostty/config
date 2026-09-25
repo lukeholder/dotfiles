@@ -23,6 +23,9 @@ window-padding-y = 10
 background-opacity = 0.95
 
 # Use native macOS tabs
+# Requires ghostty@tip: macOS 27 tabs-titlebar frame bug (fixed by PR #13069,
+# merged 2026-06-22) hasn't landed in stable yet. See
+# https://github.com/ghostty-org/ghostty/issues/13070
 macos-titlebar-style = "tabs"
 
 # App icon

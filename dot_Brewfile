@@ -65,7 +65,7 @@ cask "google-chrome"
 cask "firefox"
 
 # Terminal
-cask "ghostty"
+cask "ghostty@tip" # tracking tip for macOS 27 tabs-titlebar fix (ghostty-org/ghostty#13070); switch back to "ghostty" once fixed in stable
 
 # Editors & IDEs
 cask "jetbrains-toolbox"    # JetBrains IDE manager
