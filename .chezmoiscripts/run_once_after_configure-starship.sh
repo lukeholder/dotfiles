@@ -9,5 +9,5 @@ if ! command -v starship &>/dev/null; then
 fi
 
 echo "==> Configuring starship with Catppuccin Powerline preset..."
-starship preset catppuccin-powerline -o ~/.config/starship.toml
+starship preset catppuccin-powerline -o ~/.config/starship.toml --force
 echo "✓ starship config applied"

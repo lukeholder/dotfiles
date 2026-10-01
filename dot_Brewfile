@@ -29,7 +29,9 @@ brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-zimg"] # Audio/video processi
 brew "fzf"                  # Fuzzy finder
 brew "fzf-tab"              # Replace zsh Tab completion menu with fzf
 brew "gh"                   # GitHub CLI
+brew "handbrake"            # Video transcoder (CLI: HandBrakeCLI)
 brew "git"                  # Latest Git
+brew "googleworkspace-cli"  # CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
 brew "jq"                   # JSON processor
 brew "lazygit"              # TUI git client
 brew "mise"                 # Runtime version manager
@@ -55,6 +57,9 @@ brew "anomalyco/tap/opencode"   # OpenCode AI coding assistant
 
 # ngrok — expose local servers to the internet
 cask "ngrok"
+
+# gcloud CLI — required by `gws auth setup` (googleworkspace-cli)
+cask "gcloud-cli"
 
 # ---------------------------------------------------------------------------
 # Cask Applications
@@ -117,6 +122,7 @@ cask "steam"                # Steam game client
 
 # Media
 cask "vlc"                  # VLC media player
+cask "handbrake-app"        # HandBrake video transcoder (GUI)
 
 # Flashing / Imaging
 cask "balenaetcher"         # Bootable USB drive flasher
