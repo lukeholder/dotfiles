@@ -70,6 +70,7 @@ This single command:
 - Zig (latest)
 - Crystal (latest)
 - Bun (latest)
+- pnpm (latest)
 
 ## Dotfiles
 
