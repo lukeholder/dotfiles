@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Agent skills manifest hash: {{ include "dot_agent-skills" | sha256sum }}
+# Re-runs automatically whenever dot_agent-skills changes.
+
+set -euo pipefail
+
+if ! command -v npx &>/dev/null; then
+  echo "Warning: npx not found — skipping agent skills install (run 'mise install' first)"
+  exit 0
+fi
+
+manifest="{{ .chezmoi.homeDir }}/.agent-skills"
+
+while IFS= read -r source; do
+  [[ -z "$source" || "$source" == \#* ]] && continue
+  echo "==> Installing skills from $source"
+  npx --yes skills add "$source" -g -s '*' -a '*' -y
+done < "$manifest"
+
+echo "✓ Agent skills installed"

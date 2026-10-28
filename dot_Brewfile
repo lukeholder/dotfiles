@@ -98,6 +98,7 @@ cask "claude-code"               # Claude Code CLI (Anthropic)
 
 # Security & Password Management
 cask "1password"            # Password manager
+cask "1password-cli"        # 1Password CLI (op)
 
 # Networking
 cask "tailscale-app"            # VPN mesh network

@@ -1,0 +1,7 @@
+# Agent skill sources, one per line.
+# Installed globally (available to all agents, incl. Claude Code) via:
+#   npx skills add <source> -g -s '*' -a '*' -y
+# Managed by .chezmoiscripts/run_onchange_after_install-skills.sh.tmpl
+
+# Google Workspace CLI (gws) skills — Drive, Gmail, Calendar, Docs, Sheets, Chat, etc.
+https://github.com/googleworkspace/cli
